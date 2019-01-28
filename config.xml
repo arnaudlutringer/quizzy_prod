@@ -91,4 +91,5 @@
         <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
     </plugin>
+    <engine name="android" spec="~7.0.0" />
 </widget>

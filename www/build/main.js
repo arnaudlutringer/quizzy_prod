@@ -640,7 +640,7 @@ var FacebookService = /** @class */ (function () {
     }
     FacebookService.prototype.loginFB = function () {
         //On demande les permissions suivantes: email
-        this.facebook.login(['public_profile', 'user_friends', 'email'])
+        this.facebook.login(['public_profile', 'email'])
             .then(function (res) { return alert('Logged into Facebook!'); })
             .catch(function (e) { return alert('Error logging into Facebook : ' + JSON.stringify(e)); });
     };

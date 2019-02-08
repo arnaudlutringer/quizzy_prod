@@ -34097,6 +34097,230 @@ page-profile ion-header.comments ion-col {
   font-size: 1.1em;
 }
 
+page-profile ion-card {
+  color: #2C2C2C;
+  margin: 12px 0 !important;
+  width: 100% !important;
+}
+
+page-profile .score {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 2em;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-profile .details {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+page-profile .details.bad {
+  color: #f53d3d;
+}
+
+page-profile .details.good {
+  color: #32db64;
+}
+
+page-profile .actions button div {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+
+page-profile .friend-item {
+  padding-left: 8px;
+}
+
+page-profile ion-label {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+page-profile .hidden {
+  display: none;
+}
+
+page-profile .card-friend ion-card-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+page-profile .card-header-info {
+  padding: 1px 0;
+  height: 8px;
+}
+
+page-profile .card-header-info > div {
+  height: 100%;
+}
+
+page-profile .card-header-info > div.bad {
+  background-color: #f53d3d;
+}
+
+page-profile .card-header-info > div.good {
+  background-color: #32db64;
+}
+
+page-profile .card-header-info > div.not-played {
+  background-color: #bdc3c7;
+}
+
+page-profile .friend-score {
+  border: solid 1px #C2C2C2;
+  border-radius: 5px;
+  background: #F3F3F3;
+}
+
+page-profile .friend-score ion-col {
+  height: 40px;
+  text-align: right;
+  font-weight: bold;
+}
+
+page-profile .comment-me, page-profile .comment-not-me {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1.1em;
+}
+
+page-profile .comment-me .block-message {
+  float: right;
+}
+
+page-profile .comment-not-me .block-message {
+  float: left;
+}
+
+page-profile .comment-me .block-message {
+  padding: 6px 10px;
+  background: #92bed5;
+  border-radius: 5px;
+  text-align: right;
+  float: right;
+  max-width: 70%;
+}
+
+page-profile .comment-not-me .block-message {
+  padding: 6px 10px;
+  background: #8d8f7d;
+  border-radius: 5px;
+  text-align: left;
+  float: left;
+  max-width: 70%;
+}
+
+page-profile .comment-not-me .block-message .time, page-profile .comment-me .block-message .time {
+  padding: 0;
+  text-align: right;
+  float: right;
+  font-size: .8em;
+  color: #ddd;
+}
+
+page-profile .profile-comments .comment-not-me img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  float: left;
+}
+
+page-profile .profile-comments .comment-me img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  float: right;
+}
+
+page-profile .profile-comments {
+  height: calc(100% - 60px);
+  padding: 0 16px !important;
+}
+
+page-profile .profile-comments .scroll-content {
+  padding: 0 16px !important;
+}
+
+page-profile .chat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  height: 50px;
+}
+
+page-profile .chat > div {
+  padding: 5px 0 5px 5px;
+}
+
+page-profile .chat ion-textarea {
+  background: white;
+  color: #2C2C2C;
+  border: solid 1px #BBB;
+  border-radius: 5px;
+  width: 78%;
+  float: left;
+  height: 40px;
+}
+
+page-profile .chat ion-textarea textarea {
+  margin: 5px !important;
+}
+
+page-profile .chat button {
+  height: 40px !important;
+  width: 20%;
+  float: right;
+  margin: 0 0.2rem !important;
+}
+
+page-profile .comment-date {
+  margin: 10px 0;
+}
+
+page-profile .comment-date > ion-col {
+  background: #ddd;
+  color: #2C2C2C;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+page-profile .comment-date > ion-col > div {
+  text-align: center;
+}
+
+page-profile ion-header.comments > button {
+  position: absolute !important;
+  z-index: 5 !important;
+}
+
+page-profile ion-header.comments ion-col {
+  font-size: 1.1em;
+}
+
 page-questions ion-grid.grid.sub-header {
   width: 100%;
   padding: 20px;
@@ -34186,6 +34410,10 @@ page-questions ion-grid.questions ion-col.actions {
 
 page-questions ion-grid.questions ion-col.answer {
   font-weight: bold;
+}
+
+page-questions ion-grid.questions ion-col.answer.not-replied {
+  font-style: italic;
 }
 
 page-questions .play-button > div {
@@ -34300,6 +34528,7 @@ page-reply .actions .pass {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 page-reply .actions .quit {
@@ -34542,6 +34771,73 @@ page-reply .pre-game .domain .domain-block .text {
   align-items: center;
   width: calc(100% - 64px);
   font-size: 18px;
+}
+
+page-reply .swiper-slide.swiper-slide-prev {
+  opacity: 0.3;
+}
+
+page-reply .swiper-slide.swiper-slide-next {
+  opacity: 0.3;
+}
+
+page-reply .qs-row {
+  height: 30%;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 30%;
+  position: relative;
+}
+
+page-reply .qs-row.valided {
+  -webkit-box-shadow: 0px 0px 10px 1px white;
+  box-shadow: 0px 0px 10px 1px white;
+  background-color: #44bd32;
+  color: white;
+}
+
+page-reply .qs-actions {
+  top: 50%;
+  height: 30%;
+  position: relative;
+}
+
+page-reply .input-int, page-reply .input-text {
+  background: white;
+  color: #2C2C2C;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 30px;
+  white-space: 11px;
+  -webkit-box-shadow: 0px 0px 5px 1px white;
+  box-shadow: 0px 0px 5px 1px white;
+  letter-spacing: 1px;
+}
+
+page-reply .input-int.valided, page-reply .input-text.valided {
+  background: #44bd32;
+  color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-reply .input-int > input, page-reply .input-text > input {
+  text-align: center;
 }
 
 page-reply-loader .block-friend {

@@ -285,6 +285,33 @@ var Translate = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 33:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__category_category__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__facebook_facebook_service__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_api__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__translate_translate__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_stringUtils__ = __webpack_require__(690);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__category_category__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__facebook_facebook_service__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__user_user__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__api_api__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__translate_translate__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_5__utils_stringUtils__["a"]; });
+
+
+
+
+
+
+
+//# sourceMappingURL=providers.js.map
+
+/***/ }),
+
 /***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -313,15 +340,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_globalization_ngx__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(699);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(699);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_pages__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(700);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_pages__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_facebook__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_providers__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_native_page_transitions__ = __webpack_require__(700);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_native_page_transitions__ = __webpack_require__(701);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -410,10 +437,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__providers_providers__["b" /* CategoryProvider */],
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_facebook__["a" /* Facebook */],
                 __WEBPACK_IMPORTED_MODULE_13__providers_providers__["c" /* FacebookService */],
-                __WEBPACK_IMPORTED_MODULE_13__providers_providers__["e" /* User */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_providers__["f" /* User */],
                 __WEBPACK_IMPORTED_MODULE_13__providers_providers__["a" /* Api */],
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_globalization_ngx__["a" /* Globalization */],
-                __WEBPACK_IMPORTED_MODULE_13__providers_providers__["d" /* Translate */]
+                __WEBPACK_IMPORTED_MODULE_13__providers_providers__["e" /* Translate */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_providers__["d" /* StringUtils */]
             ]
         })
     ], AppModule);
@@ -437,8 +465,8 @@ function HttpLoaderFactory(http) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -474,7 +502,7 @@ var MyApp = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_providers__["d" /* Translate */]])
+            __WEBPACK_IMPORTED_MODULE_6__providers_providers__["e" /* Translate */]])
     ], MyApp);
     return MyApp;
 }());
@@ -492,9 +520,9 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -798,19 +826,19 @@ var appSettings = {
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__profile_profile__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_contact__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_game__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__loading_loading__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_game_loader__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__questions_questions__ = __webpack_require__(694);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reply_reply__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reply_reply_loader__ = __webpack_require__(696);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__settings_settings__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_contact__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_game__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__loading_loading__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_game_loader__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__questions_questions__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reply_reply__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reply_reply_loader__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__settings_settings__ = __webpack_require__(698);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_0__profile_profile__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__profile_profile__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__contact_contact__["a"]; });
@@ -837,14 +865,14 @@ var appSettings = {
 
 /***/ }),
 
-/***/ 42:
+/***/ 43:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -930,30 +958,6 @@ var AbstractPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=abstract.js.map
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__category_category__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__facebook_facebook_service__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_api__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__translate_translate__ = __webpack_require__(258);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__category_category__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__facebook_facebook_service__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__user_user__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__api_api__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__translate_translate__["a"]; });
-
-
-
-
-
-
-//# sourceMappingURL=providers.js.map
 
 /***/ }),
 
@@ -1099,6 +1103,63 @@ var User = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringUtils; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var StringUtils = /** @class */ (function () {
+    function StringUtils() {
+    }
+    StringUtils.prototype.removeAccents = function (str) {
+        var accents = 'ÀÁÂÃÄÅàáâãäåßÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+        var accentsOut = "AAAAAAaaaaaaBOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+        str = str.split('');
+        var strLen = str.length;
+        var i, x;
+        for (i = 0; i < strLen; i++) {
+            if ((x = accents.indexOf(str[i])) != -1) {
+                str[i] = accentsOut[x];
+            }
+        }
+        return str.join('');
+    };
+    StringUtils.prototype.toUpperCase = function (str) {
+        if (str == null) {
+            return null;
+        }
+        return str.toUpperCase();
+    };
+    StringUtils.prototype.trim = function (str) {
+        if (str == null) {
+            return null;
+        }
+        return str.trim();
+    };
+    StringUtils.prototype.cleanTextForGame = function (str) {
+        var result = this.removeAccents(str);
+        result = this.toUpperCase(result);
+        result = this.trim(result);
+        return result;
+    };
+    StringUtils = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
+    ], StringUtils);
+    return StringUtils;
+}());
+
+//# sourceMappingURL=stringUtils.js.map
+
+/***/ }),
+
+/***/ 691:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
@@ -1130,7 +1191,7 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 691:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1139,7 +1200,8 @@ var ContactPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__abstract__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1164,9 +1226,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var GamePage = /** @class */ (function (_super) {
     __extends(GamePage, _super);
-    function GamePage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params, sanitizer) {
+    function GamePage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params, sanitizer, stringUtils) {
         var _this = _super.call(this, viewCtrl, navCtrl, alertCtrl, toastCtrl, modalCtrl, params) || this;
         _this.viewCtrl = viewCtrl;
         _this.navCtrl = navCtrl;
@@ -1176,12 +1239,18 @@ var GamePage = /** @class */ (function (_super) {
         _this.modalCtrl = modalCtrl;
         _this.params = params;
         _this.sanitizer = sanitizer;
+        _this.stringUtils = stringUtils;
         _this.temps = 10;
         _this.remaining = "10";
         _this.currentQuestionId = 0;
         _this.showResponses = false;
         _this.showCategory = true;
-        _this.mock();
+        _this.replied = false;
+        _this.questionStatus = null;
+        _this.qcm_value = '';
+        _this.qs_value = '';
+        _this.questions = _this.params.get('questions');
+        _this.prepareLists();
         _this.currentQuestion = _this.questions[_this.currentQuestionId];
         _this.startShowCategory();
         return _this;
@@ -1197,24 +1266,35 @@ var GamePage = /** @class */ (function (_super) {
     };
     GamePage.prototype.startTimer = function () {
         var _this = this;
-        var delai = this.temps / 200;
-        var time = 10000;
+        var delai = this.currentQuestion.type.time / 200;
+        var time = this.currentQuestion.type.time * 1000;
         this.taux = 0;
         this.timer = setInterval(function (x) {
             _this.taux += .5;
             time -= delai * 1000;
             _this.remaining = (Math.floor(time / 1000) + 1).toString();
             if (_this.taux == 100) {
-                _this.verify(null);
+                _this.verify(null, null);
+                _this.replied = true;
             }
         }, delai * 1000);
     };
-    GamePage.prototype.verify = function (answerChosen) {
+    GamePage.prototype.verify = function (answerChosen, goodAnswer) {
         if (!this.showResponses) {
             this.currentResponse = answerChosen;
             this.showResponses = true;
             clearInterval(this.timer);
-            if (answerChosen == this.currentQuestion.goodAnswer.id) {
+            var equal = answerChosen == this.currentQuestion.goodAnswer;
+            if (answerChosen == null && goodAnswer == null) {
+                equal = false;
+            }
+            else {
+                if (this.currentQuestion.type.name == 'TEXT') {
+                    equal = this.levenshteinDistance(answerChosen, goodAnswer) <= (goodAnswer.length / 5);
+                }
+            }
+            if (equal) {
+                this.questionStatus = 'good';
                 if (this.taux < 30) {
                     this.toast('+5');
                     return;
@@ -1228,32 +1308,131 @@ var GamePage = /** @class */ (function (_super) {
                     return;
                 }
             }
+            else {
+                this.questionStatus = 'bad';
+            }
         }
     };
-    GamePage.prototype.getClass = function (answerChosen) {
-        if (this.showResponses) {
-            if (answerChosen == this.currentQuestion.goodAnswer.id) {
+    GamePage.prototype.setQCMGood = function (answerChosen) {
+        var string = answerChosen + ';';
+        var indexof = this.qcm_value.indexOf(string);
+        if (indexof > -1) {
+            this.qcm_value = this.qcm_value.replace(string, '');
+        }
+        else {
+            this.qcm_value += string;
+        }
+        this.sortQCM();
+    };
+    GamePage.prototype.sortQCM = function () {
+        var arr = this.qcm_value.split(';').sort();
+        this.qcm_value = '';
+        for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
+            var item = arr_1[_i];
+            if (item) {
+                this.qcm_value += item + ';';
+            }
+        }
+    };
+    GamePage.prototype.getQCMClass = function (answerChosen) {
+        if (!this.replied) {
+            if (this.qcm_value.indexOf(answerChosen + ';') > -1) {
+                return 'selected';
+            }
+        }
+        else {
+            if (this.currentQuestion.goodAnswer.indexOf(answerChosen + ';') > -1) {
                 return 'good';
             }
             else {
-                if (answerChosen == this.currentResponse) {
+                if (this.qcm_value.indexOf(answerChosen + ';') > -1) {
                     return 'bad';
                 }
             }
         }
         return '';
     };
+    GamePage.prototype.setGood = function (answerChosen) {
+        this.qs_value = answerChosen;
+    };
+    GamePage.prototype.getClass = function (answerChosen) {
+        if (!this.replied) {
+            if (this.qs_value == answerChosen) {
+                return 'selected';
+            }
+        }
+        else {
+            if (this.currentQuestion.goodAnswer == answerChosen) {
+                return 'good';
+            }
+            else {
+                if (this.qs_value == answerChosen) {
+                    return 'bad';
+                }
+            }
+        }
+        return '';
+    };
+    GamePage.prototype.validYMD = function () {
+        var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText +
+            '-' +
+            this.sliderMonth._slides[this.sliderMonth.getActiveIndex()].dataset.value +
+            '-' +
+            this.sliderDay._slides[this.sliderDay.getActiveIndex()].dataset.value;
+        this.verify(date, this.currentQuestion.goodAnswer);
+        this.sliderDay.lockSwipes(true);
+        this.sliderMonth.lockSwipes(true);
+        this.sliderYear.lockSwipes(true);
+        this.replied = true;
+    };
+    GamePage.prototype.validYM = function () {
+        var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText +
+            '-' +
+            this.sliderMonth._slides[this.sliderMonth.getActiveIndex()].dataset.value;
+        this.verify(date, this.currentQuestion.goodAnswer);
+        this.sliderMonth.lockSwipes(true);
+        this.sliderYear.lockSwipes(true);
+        this.replied = true;
+    };
+    GamePage.prototype.validY = function () {
+        var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText;
+        this.verify(date, this.currentQuestion.goodAnswer);
+        this.sliderYear.lockSwipes(true);
+        this.replied = true;
+    };
+    GamePage.prototype.validINT = function () {
+        this.verify(this.int_value, this.currentQuestion.goodAnswer);
+        this.replied = true;
+    };
+    GamePage.prototype.validTEXT = function () {
+        this.verify(this.stringUtils.cleanTextForGame(this.text_value), this.stringUtils.cleanTextForGame(this.currentQuestion.goodAnswer));
+        this.replied = true;
+    };
+    GamePage.prototype.validQCM = function () {
+        this.verify(this.qcm_value, this.currentQuestion.goodAnswer);
+        this.replied = true;
+    };
+    GamePage.prototype.validQS = function () {
+        this.verify(this.qs_value, this.currentQuestion.goodAnswer);
+        this.replied = true;
+    };
     GamePage.prototype.nextQuestion = function () {
         clearInterval(this.timer);
         this.currentQuestionId++;
+        this.questionStatus = null;
         if (this.currentQuestionId == this.questions.length) {
             this.quit();
         }
         else {
             this.showResponses = false;
             this.currentResponse = null;
+            this.replied = false;
             this.startShowCategory();
             this.currentQuestion = this.questions[this.currentQuestionId];
+            this.temps = this.currentQuestion.type.time;
+            // Réinitilisation des valeurs
+            this.qcm_value = '';
+            this.qs_value = '';
         }
     };
     GamePage.prototype.quit = function () {
@@ -1264,142 +1443,88 @@ var GamePage = /** @class */ (function (_super) {
         this.showResponses = false;
         clearInterval(this.timer);
     };
-    GamePage.prototype.mock = function () {
-        this.questions = [{
-                'id': 1,
-                'title': "En quelle année je suis né ?",
-                'category': {
-                    'title': 'Gastronomie',
-                    'image': 'http://www.leshallesdenimes.com/imgs/images/etal-bio/Fruits-Legumes.jpg'
-                },
-                'answers': [{
-                        "id": 1,
-                        'text': "1986",
-                    }, {
-                        "id": 2,
-                        'text': "1987"
-                    }, {
-                        "id": 3,
-                        'text': "1988"
-                    }, {
-                        "id": 4,
-                        'text': "1989"
-                    }
-                ],
-                'goodAnswer': {
-                    "id": 1,
-                    'text': "1986"
+    GamePage.prototype.prepareLists = function () {
+        this.years = new Array();
+        for (var i = 1950; i <= 2019; i++) {
+            this.years.push({ value: i, label: i });
+        }
+        this.months = new Array();
+        this.months.push({ value: '01', label: 'Janvier' });
+        this.months.push({ value: '02', label: 'Février' });
+        this.months.push({ value: '03', label: 'Mars' });
+        this.months.push({ value: '04', label: 'Avril' });
+        this.months.push({ value: '05', label: 'Mai' });
+        this.months.push({ value: '06', label: 'Juin' });
+        this.months.push({ value: '07', label: 'Juillet' });
+        this.months.push({ value: '08', label: 'Août' });
+        this.months.push({ value: '09', label: 'Septembre' });
+        this.months.push({ value: '10', label: 'Octobre' });
+        this.months.push({ value: '11', label: 'Novembre' });
+        this.months.push({ value: '12', label: 'Décembre' });
+        this.days = new Array();
+        for (var i = 1; i <= 31; i++) {
+            this.days.push({ value: (i < 10 ? '0' + i : '' + i), label: (i < 10 ? '0' + i : '' + i) });
+        }
+    };
+    GamePage.prototype.toDateText = function (date) {
+        var array = date.split('-');
+        if (array.length == 3) {
+            //YMD
+            return array[2] + ' ' + this.months[(+array[1] - 1)].label + ' ' + array[0];
+        }
+        if (array.length == 2) {
+            //YMD
+            return this.months[(+array[1] - 1)].label + ' ' + array[0];
+        }
+        return date;
+    };
+    GamePage.prototype.levenshteinDistance = function (a, b) {
+        if (a.length == 0)
+            return b.length;
+        if (b.length == 0)
+            return a.length;
+        var matrix = [];
+        // increment along the first column of each row
+        var i;
+        for (i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        // increment each column in the first row
+        var j;
+        for (j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+        // Fill in the rest of the matrix
+        for (i = 1; i <= b.length; i++) {
+            for (j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
                 }
-            },
-            {
-                'id': 2,
-                'title': "Quel est mon plat préféré ?",
-                'category': {
-                    'title': 'Culture générale',
-                    'image': 'https://pbs.twimg.com/profile_images/2587029738/jl43207kyoox2f9gorbo_400x400.png'
-                },
-                'answers': [{
-                        "id": 5,
-                        'text': "Le tajine",
-                    }, {
-                        "id": 6,
-                        'text': "Le bon vieux kebab"
-                    }, {
-                        "id": 7,
-                        'text': "La blanquette de veau"
-                    }, {
-                        "id": 8,
-                        'text': "Le poulet chasseur"
-                    }
-                ],
-                'goodAnswer': {
-                    "id": 8,
-                    'text': "Le poulet chasseur"
-                }
-            },
-            {
-                'id': 3,
-                'title': "Quel est mon plat préféré ?",
-                'category': {
-                    'title': 'Culture générale',
-                    'image': 'https://pbs.twimg.com/profile_images/2587029738/jl43207kyoox2f9gorbo_400x400.png'
-                },
-                'answers': [{
-                        "id": 5,
-                        'text': "Le tajine",
-                    }, {
-                        "id": 6,
-                        'text': "Le bon vieux kebab"
-                    }, {
-                        "id": 7,
-                        'text': "La blanquette de veau"
-                    }, {
-                        "id": 8,
-                        'text': "Le poulet chasseur"
-                    }
-                ],
-                'goodAnswer': {
-                    "id": 8,
-                    'text': "Le poulet chasseur"
-                }
-            },
-            {
-                'id': 4,
-                'title': "Quel est mon plat préféré ?",
-                'category': {
-                    'title': 'Culture générale',
-                    'image': 'https://pbs.twimg.com/profile_images/2587029738/jl43207kyoox2f9gorbo_400x400.png'
-                },
-                'answers': [{
-                        "id": 5,
-                        'text': "Le tajine",
-                    }, {
-                        "id": 6,
-                        'text': "Le bon vieux kebab"
-                    }, {
-                        "id": 7,
-                        'text': "La blanquette de veau"
-                    }, {
-                        "id": 8,
-                        'text': "Le poulet chasseur"
-                    }
-                ],
-                'goodAnswer': {
-                    "id": 8,
-                    'text': "Le poulet chasseur"
-                }
-            },
-            {
-                'id': 5,
-                'title': "Quel est mon plat préféré ?",
-                'category': {
-                    'title': 'Culture générale',
-                    'image': 'https://pbs.twimg.com/profile_images/2587029738/jl43207kyoox2f9gorbo_400x400.png'
-                },
-                'answers': [{
-                        "id": 5,
-                        'text': "Le tajine",
-                    }, {
-                        "id": 6,
-                        'text': "Le bon vieux kebab"
-                    }, {
-                        "id": 7,
-                        'text': "La blanquette de veau"
-                    }, {
-                        "id": 8,
-                        'text': "Le poulet chasseur"
-                    }
-                ],
-                'goodAnswer': {
-                    "id": 8,
-                    'text': "Le poulet chasseur"
+                else {
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                    Math.min(matrix[i][j - 1] + 1, // insertion
+                    matrix[i - 1][j] + 1)); // deletion
                 }
             }
-        ];
+        }
+        console.log('levenshtein [' + a + '] [' + b + '] : ' + matrix[b.length][a.length]);
+        return matrix[b.length][a.length];
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('sliderDay'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Slides */])
+    ], GamePage.prototype, "sliderDay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('sliderMonth'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Slides */])
+    ], GamePage.prototype, "sliderMonth", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('sliderYear'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Slides */])
+    ], GamePage.prototype, "sliderYear", void 0);
     GamePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-game',template:/*ion-inline-start:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/'<ion-content [class]="showCategory ? \' fadeIn\' : \'hidden\'">\n  <div class="pre-game h-full align-center-center">\n    <div class="domain">\n      <div class="title">\n        Categorie\n      </div>\n      <div class="domain-block">\n        <img src="{{currentQuestion.category.image}}"/>\n        <div class="text">{{currentQuestion.category.title}}</div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n<ion-content padding>\n  <div class="timer">\n    <div class="time" [style.height]="taux + \'%\'"></div>\n    <div class="info">\n      <div *ngIf="taux < 100">{{ remaining }}</div>\n      <div *ngIf="taux >= 100"><ion-icon name="close-circle"></ion-icon></div>\n    </div>\n  </div>\n  <div class="question">{{currentQuestion.title}}</div>\n  <div class="answers">\n    <div class="answer">\n      <div class="padding-block" (click)="verify(currentQuestion.answers[0].id)">\n        <div [class]="\'block \' + getClass(currentQuestion.answers[0].id)">{{currentQuestion.answers[0].text}}</div>\n      </div>\n    </div>\n    <div class="answer">\n      <div class="padding-block" (click)="verify(currentQuestion.answers[1].id)">\n        <div [class]="\'block \' + getClass(currentQuestion.answers[1].id)">{{currentQuestion.answers[1].text}}</div>\n      </div>\n    </div>\n    <div class="answer">\n      <div class="padding-block" (click)="verify(currentQuestion.answers[2].id)">\n        <div [class]="\'block \' + getClass(currentQuestion.answers[2].id)">{{currentQuestion.answers[2].text}}</div>\n      </div>\n    </div>\n    <div class="answer">\n      <div class="padding-block" (click)="verify(currentQuestion.answers[3].id)">\n        <div [class]="\'block \' + getClass(currentQuestion.answers[3].id)">{{currentQuestion.answers[3].text}}</div>\n      </div>\n    </div>\n  </div>\n  <div class="suivi">\n    <div class="person" [style.top]="sanitizer.bypassSecurityTrustStyle(\'calc( ( 100% - 50px - 20px ) * \' + (currentQuestionId / (questions?.length - 1)) +\')\')">\n      <img src="https://www.popme.app/media/cache/resolve/user/uploads/images/user/4435e3b26ae1da2d545ceb09f353ea10"/>\n      <div class="info">{{currentQuestionId + 1}}/{{questions?.length}}</div>\n    </div>\n  </div>\n  <div class="actions">\n    <div class="quit" (click)="quit()">Quitter</div>\n    <div class="domain">\n      <div class="domain-block">\n        <img src="{{currentQuestion.category.image}}"/>\n        <div class="text">{{currentQuestion.category.title}}</div>\n      </div>\n    </div>\n    <div class="pass" [hidden]="!showResponses" (click)="nextQuestion()">Suivant</div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/
+            selector: 'page-game',template:/*ion-inline-start:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/'<ion-content [class]="showCategory ? \' fadeIn\' : \'hidden\'">\n  <div class="pre-game h-full align-center-center">\n    <div class="domain">\n      <div class="title">\n        Categorie\n      </div>\n      <div class="domain-block">\n        <img src="{{currentQuestion.category.image}}"/>\n        <div class="text">{{currentQuestion.category.title}}</div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n<ion-content padding>\n  <div class="timer">\n    <div class="time" [style.height]="taux + \'%\'"></div>\n    <div class="info">\n      <div *ngIf="taux < 100">{{ remaining }}</div>\n      <div *ngIf="taux >= 100"><ion-icon name="close-circle"></ion-icon></div>\n    </div>\n  </div>\n  <div class="question">{{currentQuestion.title}}</div>\n  <div class="answers">\n    <ng-container *ngIf="currentQuestion.type.name == \'QS\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setGood(answer.id)">\n              <div [class]="\'block \' + getClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qs">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQS()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n    </ng-container>\n    <ng-container *ngIf="currentQuestion.type.name == \'QCM\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setQCMGood(answer.id)">\n              <div [class]="\'block \' + getQCMClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qcm">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQCM()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n   </ng-container>\n   <ng-container *ngIf="currentQuestion.type.name == \'INT\'">\n    <ion-row class="qs-row">\n      <ion-col col-9 style="height: 100px;">\n        <ion-input [readonly]="replied" type="number"\n        [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-int\'" \n        [(ngModel)]="int_value"></ion-input>\n      </ion-col>\n    </ion-row>\n    <ion-row class="qs-response">\n      <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n       La bonne réponse est : <br/>\n       {{currentQuestion.goodAnswer}}\n     </div>\n     <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n       Bien joué\n     </div>\n   </ion-row>\n   <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validINT()" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'TEXT\'">\n  <ion-row class="qs-row">\n    <ion-col col-9 style="height: 100px;">\n      <ion-input [readonly]="replied" type="text"\n      [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-text\'" \n      [(ngModel)]="text_value"></ion-input>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{currentQuestion.goodAnswer}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n <ion-row class="qs-actions">\n  <div style="text-align:center;width:100%">\n   <button ion-button icon-start (click)="validTEXT()" [hidden]="replied">Valider</button>\n </div>\n</ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YMD\'">\n  <ion-row [class]="replied ? \'qs-row dateYMD \' + questionStatus : \'qs-row dateYMD\'">\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderDay pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let day of days">\n          <ion-slide [attr.data-value]="day.value">{{day.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let month of months">\n          <ion-slide  [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYMD()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YM\'">\n  <ion-row [class]="replied ? \'qs-row dateYM \' + questionStatus : \'qs-row dateYM\'">\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n\n        <ng-container *ngFor="let month of months">\n          <ion-slide [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYM()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'Y\'">\n  <ion-row [class]="replied ? \'qs-row dateY \' + questionStatus : \'qs-row dateY\'">\n    <ion-col col-9 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validY()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n</div>\n<div class="suivi">\n  <div class="person" [style.top]="sanitizer.bypassSecurityTrustStyle(\'calc( ( 100% - 50px - 20px ) * \' + (currentQuestionId / (questions?.length - 1)) +\')\')">\n    <img src="https://www.popme.app/media/cache/resolve/user/uploads/images/user/4435e3b26ae1da2d545ceb09f353ea10"/>\n    <div class="info">{{currentQuestionId + 1}}/{{questions?.length}}</div>\n  </div>\n</div>\n<div class="actions">\n  <div class="quit" (click)="quit()">Quitter</div>\n  <div class="domain">\n    <div class="domain-block">\n      <img src="{{currentQuestion.category.image}}"/>\n      <div class="text">{{currentQuestion.category.title}}</div>\n    </div>\n  </div>\n  <div class="pass" [hidden]="!showResponses" (click)="nextQuestion()">Suivant</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
@@ -1408,7 +1533,8 @@ var GamePage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]])
+            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["d" /* StringUtils */]])
     ], GamePage);
     return GamePage;
 }(__WEBPACK_IMPORTED_MODULE_4__abstract__["a" /* AbstractPage */]));
@@ -1417,7 +1543,7 @@ var GamePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 692:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1425,8 +1551,8 @@ var GamePage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1539,9 +1665,9 @@ var LoadingPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["c" /* FacebookService */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["e" /* User */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["f" /* User */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["b" /* CategoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["d" /* Translate */]])
+            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["e" /* Translate */]])
     ], LoadingPage);
     return LoadingPage;
 }(__WEBPACK_IMPORTED_MODULE_3__abstract__["a" /* AbstractPage */]));
@@ -1550,7 +1676,7 @@ var LoadingPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 693:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1558,8 +1684,9 @@ var LoadingPage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1579,6 +1706,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
 
 
 
@@ -1586,7 +1749,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var GameLoaderPage = /** @class */ (function (_super) {
     __extends(GameLoaderPage, _super);
-    function GameLoaderPage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params) {
+    function GameLoaderPage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params, user, api) {
         var _this = _super.call(this, viewCtrl, navCtrl, alertCtrl, toastCtrl, modalCtrl, params) || this;
         _this.viewCtrl = viewCtrl;
         _this.navCtrl = navCtrl;
@@ -1595,21 +1758,57 @@ var GameLoaderPage = /** @class */ (function (_super) {
         _this.toastCtrl = toastCtrl;
         _this.modalCtrl = modalCtrl;
         _this.params = params;
+        _this.user = user;
+        _this.api = api;
         _this.remaining = 3;
         _this.delai = 1000;
-        _this.startTimer();
         _this.friendChosen = _this.params.get('friend');
+        _this.loadQuestions();
         return _this;
     }
-    GameLoaderPage.prototype.startTimer = function () {
+    GameLoaderPage.prototype.loadQuestions = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var questions;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('Récupération des questions non répondues du user ' + this.friendChosen.id);
+                        return [4 /*yield*/, this.getQuestionsNotResponded(this.friendChosen.id, this.user.getId())];
+                    case 1:
+                        questions = _a.sent();
+                        this.startTimer(questions);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GameLoaderPage.prototype.startTimer = function (questions) {
         var _this = this;
         this.timer = setInterval(function (x) {
             _this.remaining -= _this.delai / 1000;
             if (_this.remaining <= 0) {
-                _this.goTo(__WEBPACK_IMPORTED_MODULE_4__pages__["c" /* GamePage */], 'forward', {});
+                _this.goTo(__WEBPACK_IMPORTED_MODULE_4__pages__["c" /* GamePage */], 'forward', { 'questions': questions });
                 clearInterval(_this.timer);
             }
         }, this.delai);
+    };
+    GameLoaderPage.prototype.getQuestionsNotResponded = function (userChosen, user) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var data;
+            data = {};
+            data.userChosen = userChosen;
+            data.user = user;
+            _this.api.post('question/get-questions-not-responded', data)
+                .subscribe(function (data) {
+                var body;
+                body = JSON.parse(data.text());
+                resolve(body);
+            }, function (err) {
+            }, function () {
+                //this.goToHome();
+            });
+        });
     };
     GameLoaderPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -1621,7 +1820,9 @@ var GameLoaderPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["f" /* User */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["a" /* Api */]])
     ], GameLoaderPage);
     return GameLoaderPage;
 }(__WEBPACK_IMPORTED_MODULE_3__abstract__["a" /* AbstractPage */]));
@@ -1630,7 +1831,7 @@ var GameLoaderPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 694:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1639,9 +1840,9 @@ var GameLoaderPage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1774,7 +1975,7 @@ var QuestionsPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_providers__["e" /* User */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_providers__["f" /* User */],
             __WEBPACK_IMPORTED_MODULE_6__providers_providers__["a" /* Api */]])
     ], QuestionsPage);
     return QuestionsPage;
@@ -1784,7 +1985,7 @@ var QuestionsPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 695:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1792,9 +1993,9 @@ var QuestionsPage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1875,7 +2076,18 @@ var ReplyPage = /** @class */ (function (_super) {
         else {
             this.questions[this.currentQuestionId].goodAnswer += string;
         }
+        this.questions[this.currentQuestionId].goodAnswer = this.sortQCM();
         this.replied = (this.questions[this.currentQuestionId].goodAnswer != '');
+    };
+    ReplyPage.prototype.sortQCM = function () {
+        var arr = this.questions[this.currentQuestionId].goodAnswer.split(';').sort();
+        this.questions[this.currentQuestionId].goodAnswer = '';
+        for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
+            var item = arr_1[_i];
+            if (item) {
+                this.questions[this.currentQuestionId].goodAnswer += item + ';';
+            }
+        }
     };
     ReplyPage.prototype.getQCMClass = function (answerChosen) {
         if (this.questions[this.currentQuestionId].goodAnswer.indexOf(new String(answerChosen + ';')) > -1) {
@@ -2024,7 +2236,7 @@ var ReplyPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_5__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["e" /* User */]])
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["f" /* User */]])
     ], ReplyPage);
     return ReplyPage;
 }(__WEBPACK_IMPORTED_MODULE_3__abstract__["a" /* AbstractPage */]));
@@ -2033,7 +2245,7 @@ var ReplyPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 696:
+/***/ 697:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2041,9 +2253,9 @@ var ReplyPage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2182,7 +2394,7 @@ var ReplyLoaderPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_5__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["e" /* User */]])
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["f" /* User */]])
     ], ReplyLoaderPage);
     return ReplyLoaderPage;
 }(__WEBPACK_IMPORTED_MODULE_3__abstract__["a" /* AbstractPage */]));
@@ -2191,7 +2403,7 @@ var ReplyLoaderPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 697:
+/***/ 698:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2200,8 +2412,8 @@ var ReplyLoaderPage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_providers__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__abstract__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_providers__ = __webpack_require__(33);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2356,7 +2568,7 @@ var SettingsInterestsPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["b" /* CategoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["e" /* User */]])
+            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["f" /* User */]])
     ], SettingsInterestsPage);
     return SettingsInterestsPage;
 }(__WEBPACK_IMPORTED_MODULE_3__abstract__["a" /* AbstractPage */]));

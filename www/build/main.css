@@ -33485,12 +33485,12 @@ page-game .question {
 }
 
 page-game .answers {
-  height: 68%;
+  height: 74%;
 }
 
 page-game .answer {
   width: 50%;
-  height: 25%;
+  height: 100%;
   margin: auto;
   display: -webkit-box;
   display: -webkit-flex;
@@ -33536,19 +33536,19 @@ page-game .answer > .padding-block > .block {
   box-shadow: 0px 0px 10px 1px white;
 }
 
-page-game .answer > .padding-block > .block:hover {
+page-game .answer > .padding-block > .block.selected {
   background-color: white;
   color: #2C2C2C;
 }
 
-page-game .answer > .padding-block > .block.good {
-  background-color: #44bd32;
-  color: white;
+page-game .answer > .padding-block > .block.good, page-game .good {
+  background-color: #44bd32 !important;
+  color: white  !important;
 }
 
-page-game .answer > .padding-block > .block.bad {
-  background-color: #e84118;
-  color: white;
+page-game .answer > .padding-block > .block.bad, page-game .bad {
+  background-color: #e84118 !important;
+  color: white !important;
 }
 
 page-game .actions {
@@ -33834,6 +33834,87 @@ page-game .pre-game .domain .domain-block .text {
   align-items: center;
   width: calc(100% - 64px);
   font-size: 18px;
+}
+
+page-game .swiper-slide {
+  font-size: 0.9em;
+}
+
+page-game .swiper-slide.swiper-slide-prev {
+  opacity: 0.3;
+}
+
+page-game .swiper-slide.swiper-slide-next {
+  opacity: 0.3;
+}
+
+page-game .qs-row {
+  height: 30%;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 30%;
+  position: relative;
+}
+
+page-game .qs-row.dateYMD, page-game .qs-row.dateYM, page-game .qs-row.dateY {
+  width: calc(100% - 80px);
+  margin: auto;
+}
+
+page-game .qs-row.valided {
+  -webkit-box-shadow: 0px 0px 10px 1px white;
+  box-shadow: 0px 0px 10px 1px white;
+  background-color: #44bd32;
+  color: white;
+}
+
+page-game .qs-actions:not(.qcm):not(.qs) {
+  top: 50%;
+  height: 30%;
+  position: relative;
+}
+
+page-game .qs-response {
+  top: 40%;
+  position: relative;
+}
+
+page-game .input-int, page-game .input-text {
+  background: white;
+  color: #2C2C2C;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 30px;
+  white-space: 11px;
+  -webkit-box-shadow: 0px 0px 5px 1px white;
+  box-shadow: 0px 0px 5px 1px white;
+  letter-spacing: 1px;
+}
+
+page-game .input-int.valided, page-game .input-text.valided {
+  background: #44bd32;
+  color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-game .input-int > input, page-game .input-text > input {
+  text-align: center;
 }
 
 page-game-loader .block-friend {

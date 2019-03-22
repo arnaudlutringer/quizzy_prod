@@ -1323,10 +1323,10 @@ var GamePage = /** @class */ (function (_super) {
                 if (this.taux < 30) {
                     this.toast('+5');
                 }
-                if (this.taux < 70) {
+                if (this.taux >= 31 && this.taux < 70) {
                     this.toast('+3');
                 }
-                if (this.taux < 100) {
+                if (this.taux >= 71 && this.taux < 100) {
                     this.toast('+1');
                 }
             }

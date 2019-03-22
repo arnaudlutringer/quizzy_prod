@@ -161,6 +161,11 @@ var CategoryProvider = /** @class */ (function () {
                 .subscribe(function (data) {
                 var body;
                 _this.categories = JSON.parse(data.text());
+                for (var _i = 0, _a = _this.categories; _i < _a.length; _i++) {
+                    var categorie = _a[_i];
+                    var imgCat = new Image();
+                    imgCat.src = categorie.picture;
+                }
                 resolve();
             }, function (err) {
                 reject(err);
@@ -1141,6 +1146,9 @@ var StringUtils = /** @class */ (function () {
         return str.trim();
     };
     StringUtils.prototype.cleanTextForGame = function (str) {
+        if (!str) {
+            return '';
+        }
         var result = this.removeAccents(str);
         result = this.toUpperCase(result);
         result = this.trim(result);
@@ -1229,7 +1237,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var GamePage = /** @class */ (function (_super) {
     __extends(GamePage, _super);
-    function GamePage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params, sanitizer, stringUtils) {
+    function GamePage(viewCtrl, navCtrl, alertCtrl, storage, toastCtrl, modalCtrl, params, sanitizer, stringUtils, api, user) {
         var _this = _super.call(this, viewCtrl, navCtrl, alertCtrl, toastCtrl, modalCtrl, params) || this;
         _this.viewCtrl = viewCtrl;
         _this.navCtrl = navCtrl;
@@ -1240,6 +1248,8 @@ var GamePage = /** @class */ (function (_super) {
         _this.params = params;
         _this.sanitizer = sanitizer;
         _this.stringUtils = stringUtils;
+        _this.api = api;
+        _this.user = user;
         _this.temps = 10;
         _this.remaining = "10";
         _this.currentQuestionId = 0;
@@ -1250,6 +1260,7 @@ var GamePage = /** @class */ (function (_super) {
         _this.qcm_value = '';
         _this.qs_value = '';
         _this.questions = _this.params.get('questions');
+        _this.userPlayed = _this.params.get('userPlayed');
         _this.prepareLists();
         _this.currentQuestion = _this.questions[_this.currentQuestionId];
         _this.startShowCategory();
@@ -1275,11 +1286,25 @@ var GamePage = /** @class */ (function (_super) {
             _this.remaining = (Math.floor(time / 1000) + 1).toString();
             if (_this.taux == 100) {
                 _this.verify(null, null);
-                _this.replied = true;
+                switch (_this.currentQuestion.type.name) {
+                    case 'YMD': {
+                        _this.validYMD(false);
+                    }
+                    case 'YM': {
+                        _this.validYM(false);
+                    }
+                    case 'Y': {
+                        _this.validY(false);
+                    }
+                    default: {
+                        _this.replied = true;
+                    }
+                }
             }
         }, delai * 1000);
     };
     GamePage.prototype.verify = function (answerChosen, goodAnswer) {
+        console.log('verify');
         if (!this.showResponses) {
             this.currentResponse = answerChosen;
             this.showResponses = true;
@@ -1297,32 +1322,48 @@ var GamePage = /** @class */ (function (_super) {
                 this.questionStatus = 'good';
                 if (this.taux < 30) {
                     this.toast('+5');
-                    return;
                 }
                 if (this.taux < 70) {
                     this.toast('+3');
-                    return;
                 }
                 if (this.taux < 100) {
                     this.toast('+1');
-                    return;
                 }
             }
             else {
                 this.questionStatus = 'bad';
             }
+            // Envoi de la réponse
+            this.saveResponse(this.currentQuestion.id, answerChosen);
+            return;
         }
     };
+    GamePage.prototype.saveResponse = function (questionId, answer) {
+        var data;
+        data = {};
+        data.user_played_id = this.userPlayed;
+        data.user_id = this.user.getId();
+        data.question_id = questionId;
+        data.response = answer;
+        this.api.post('question/save-response', data)
+            .subscribe(function (data) {
+        }, function (err) {
+        }, function () {
+            //this.goToHome();
+        });
+    };
     GamePage.prototype.setQCMGood = function (answerChosen) {
-        var string = answerChosen + ';';
-        var indexof = this.qcm_value.indexOf(string);
-        if (indexof > -1) {
-            this.qcm_value = this.qcm_value.replace(string, '');
+        if (!this.replied) {
+            var string = answerChosen + ';';
+            var indexof = this.qcm_value.indexOf(string);
+            if (indexof > -1) {
+                this.qcm_value = this.qcm_value.replace(string, '');
+            }
+            else {
+                this.qcm_value += string;
+            }
+            this.sortQCM();
         }
-        else {
-            this.qcm_value += string;
-        }
-        this.sortQCM();
     };
     GamePage.prototype.sortQCM = function () {
         var arr = this.qcm_value.split(';').sort();
@@ -1353,7 +1394,9 @@ var GamePage = /** @class */ (function (_super) {
         return '';
     };
     GamePage.prototype.setGood = function (answerChosen) {
-        this.qs_value = answerChosen;
+        if (!this.replied) {
+            this.qs_value = answerChosen;
+        }
     };
     GamePage.prototype.getClass = function (answerChosen) {
         if (!this.replied) {
@@ -1373,7 +1416,7 @@ var GamePage = /** @class */ (function (_super) {
         }
         return '';
     };
-    GamePage.prototype.validYMD = function () {
+    GamePage.prototype.validYMD = function (replied) {
         var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText +
             '-' +
             this.sliderMonth._slides[this.sliderMonth.getActiveIndex()].dataset.value +
@@ -1385,7 +1428,7 @@ var GamePage = /** @class */ (function (_super) {
         this.sliderYear.lockSwipes(true);
         this.replied = true;
     };
-    GamePage.prototype.validYM = function () {
+    GamePage.prototype.validYM = function (replied) {
         var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText +
             '-' +
             this.sliderMonth._slides[this.sliderMonth.getActiveIndex()].dataset.value;
@@ -1394,7 +1437,7 @@ var GamePage = /** @class */ (function (_super) {
         this.sliderYear.lockSwipes(true);
         this.replied = true;
     };
-    GamePage.prototype.validY = function () {
+    GamePage.prototype.validY = function (replied) {
         var date = this.sliderYear._slides[this.sliderYear.getActiveIndex()].innerText;
         this.verify(date, this.currentQuestion.goodAnswer);
         this.sliderYear.lockSwipes(true);
@@ -1427,9 +1470,9 @@ var GamePage = /** @class */ (function (_super) {
             this.showResponses = false;
             this.currentResponse = null;
             this.replied = false;
-            this.startShowCategory();
             this.currentQuestion = this.questions[this.currentQuestionId];
             this.temps = this.currentQuestion.type.time;
+            this.startShowCategory();
             // Réinitilisation des valeurs
             this.qcm_value = '';
             this.qs_value = '';
@@ -1524,7 +1567,7 @@ var GamePage = /** @class */ (function (_super) {
     ], GamePage.prototype, "sliderYear", void 0);
     GamePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-game',template:/*ion-inline-start:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/'<ion-content [class]="showCategory ? \' fadeIn\' : \'hidden\'">\n  <div class="pre-game h-full align-center-center">\n    <div class="domain">\n      <div class="title">\n        Categorie\n      </div>\n      <div class="domain-block">\n        <img src="{{currentQuestion.category.image}}"/>\n        <div class="text">{{currentQuestion.category.title}}</div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n<ion-content padding>\n  <div class="timer">\n    <div class="time" [style.height]="taux + \'%\'"></div>\n    <div class="info">\n      <div *ngIf="taux < 100">{{ remaining }}</div>\n      <div *ngIf="taux >= 100"><ion-icon name="close-circle"></ion-icon></div>\n    </div>\n  </div>\n  <div class="question">{{currentQuestion.title}}</div>\n  <div class="answers">\n    <ng-container *ngIf="currentQuestion.type.name == \'QS\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setGood(answer.id)">\n              <div [class]="\'block \' + getClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qs">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQS()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n    </ng-container>\n    <ng-container *ngIf="currentQuestion.type.name == \'QCM\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setQCMGood(answer.id)">\n              <div [class]="\'block \' + getQCMClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qcm">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQCM()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n   </ng-container>\n   <ng-container *ngIf="currentQuestion.type.name == \'INT\'">\n    <ion-row class="qs-row">\n      <ion-col col-9 style="height: 100px;">\n        <ion-input [readonly]="replied" type="number"\n        [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-int\'" \n        [(ngModel)]="int_value"></ion-input>\n      </ion-col>\n    </ion-row>\n    <ion-row class="qs-response">\n      <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n       La bonne réponse est : <br/>\n       {{currentQuestion.goodAnswer}}\n     </div>\n     <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n       Bien joué\n     </div>\n   </ion-row>\n   <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validINT()" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'TEXT\'">\n  <ion-row class="qs-row">\n    <ion-col col-9 style="height: 100px;">\n      <ion-input [readonly]="replied" type="text"\n      [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-text\'" \n      [(ngModel)]="text_value"></ion-input>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{currentQuestion.goodAnswer}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n <ion-row class="qs-actions">\n  <div style="text-align:center;width:100%">\n   <button ion-button icon-start (click)="validTEXT()" [hidden]="replied">Valider</button>\n </div>\n</ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YMD\'">\n  <ion-row [class]="replied ? \'qs-row dateYMD \' + questionStatus : \'qs-row dateYMD\'">\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderDay pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let day of days">\n          <ion-slide [attr.data-value]="day.value">{{day.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let month of months">\n          <ion-slide  [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYMD()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YM\'">\n  <ion-row [class]="replied ? \'qs-row dateYM \' + questionStatus : \'qs-row dateYM\'">\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n\n        <ng-container *ngFor="let month of months">\n          <ion-slide [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYM()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'Y\'">\n  <ion-row [class]="replied ? \'qs-row dateY \' + questionStatus : \'qs-row dateY\'">\n    <ion-col col-9 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validY()">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n</div>\n<div class="suivi">\n  <div class="person" [style.top]="sanitizer.bypassSecurityTrustStyle(\'calc( ( 100% - 50px - 20px ) * \' + (currentQuestionId / (questions?.length - 1)) +\')\')">\n    <img src="https://www.popme.app/media/cache/resolve/user/uploads/images/user/4435e3b26ae1da2d545ceb09f353ea10"/>\n    <div class="info">{{currentQuestionId + 1}}/{{questions?.length}}</div>\n  </div>\n</div>\n<div class="actions">\n  <div class="quit" (click)="quit()">Quitter</div>\n  <div class="domain">\n    <div class="domain-block">\n      <img src="{{currentQuestion.category.image}}"/>\n      <div class="text">{{currentQuestion.category.title}}</div>\n    </div>\n  </div>\n  <div class="pass" [hidden]="!showResponses" (click)="nextQuestion()">Suivant</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/
+            selector: 'page-game',template:/*ion-inline-start:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/'<ion-content [class]="showCategory ? \' fadeIn\' : \'hidden\'">\n  <div class="pre-game h-full align-center-center">\n    <div class="domain">\n      <div class="title">\n        Categorie\n      </div>\n      <div class="domain-block">\n        <img src="{{currentQuestion.category.image}}"/>\n        <div class="text">{{currentQuestion.category.title}}</div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n<ion-content padding>\n  <div class="timer">\n    <div class="time" [style.height]="taux + \'%\'"></div>\n    <div class="info">\n      <div *ngIf="taux < 100">{{ remaining }}</div>\n      <div *ngIf="taux >= 100"><ion-icon name="close-circle"></ion-icon></div>\n    </div>\n  </div>\n  <div class="question">{{currentQuestion.title}}</div>\n  <div class="answers">\n    <ng-container *ngIf="currentQuestion.type.name == \'QS\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setGood(answer.id)">\n              <div [class]="\'block \' + getClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qs">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQS()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n    </ng-container>\n    <ng-container *ngIf="currentQuestion.type.name == \'QCM\'">\n      <ion-row style="height: 84%" class="align-center-center">\n        <ion-col col-12 style="height: 25%;" *ngFor="let answer of currentQuestion.answers; let i = index">\n          <div class="answer">\n            <div class="padding-block" (click)="setQCMGood(answer.id)">\n              <div [class]="\'block \' + getQCMClass(answer.id)">{{answer.text}}</div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class="qs-actions qcm">\n        <div style="text-align:center;width:100%">\n         <button ion-button icon-start (click)="validQCM()" [hidden]="replied">Valider</button>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n           Bien joué\n         </div>\n         <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n           Dommage !\n         </div>\n       </div>\n     </ion-row>\n   </ng-container>\n   <ng-container *ngIf="currentQuestion.type.name == \'INT\'">\n    <ion-row class="qs-row">\n      <ion-col col-9 style="height: 100px;">\n        <ion-input [readonly]="replied" type="number"\n        [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-int\'" \n        [(ngModel)]="int_value"></ion-input>\n      </ion-col>\n    </ion-row>\n    <ion-row class="qs-response">\n      <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n       La bonne réponse est : <br/>\n       {{currentQuestion.goodAnswer}}\n     </div>\n     <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n       Bien joué\n     </div>\n   </ion-row>\n   <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validINT()" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'TEXT\'">\n  <ion-row class="qs-row">\n    <ion-col col-9 style="height: 100px;">\n      <ion-input [readonly]="replied" type="text"\n      [class]="replied ? \'align-center-center input-int \' + questionStatus : \'align-center-center input-text\'" \n      [(ngModel)]="text_value"></ion-input>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{currentQuestion.goodAnswer}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n <ion-row class="qs-actions">\n  <div style="text-align:center;width:100%">\n   <button ion-button icon-start (click)="validTEXT()" [hidden]="replied">Valider</button>\n </div>\n</ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YMD\'">\n  <ion-row [class]="replied ? \'qs-row dateYMD \' + questionStatus : \'qs-row dateYMD\'">\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderDay pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let day of days">\n          <ion-slide [attr.data-value]="day.value">{{day.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ng-container *ngFor="let month of months">\n          <ion-slide  [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-3 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYMD(true)" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'YM\'">\n  <ion-row [class]="replied ? \'qs-row dateYM \' + questionStatus : \'qs-row dateYM\'">\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderMonth pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n\n        <ng-container *ngFor="let month of months">\n          <ion-slide [attr.data-value]="month.value">{{month.label}}</ion-slide>\n        </ng-container>\n      </ion-slides>\n    </ion-col>\n    <ion-col col-6 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validYM(true)" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n<ng-container *ngIf="currentQuestion.type.name == \'Y\'">\n  <ion-row [class]="replied ? \'qs-row dateY \' + questionStatus : \'qs-row dateY\'">\n    <ion-col col-9 style="height: 100px;">\n      <ion-slides #sliderYear pager="false" direction="vertical" loop="true" watchSlidesVisibility="true" slidesPerView="3" centeredSlides="true">\n        <ion-slide *ngFor="let year of years">{{year.value}}</ion-slide>\n      </ion-slides>\n    </ion-col>\n  </ion-row>\n  <ion-row class="qs-response">\n    <div style="text-align:center;width:100%" *ngIf="questionStatus == \'bad\'">\n     La bonne réponse est : <br/>\n     {{toDateText(currentQuestion.goodAnswer)}}\n   </div>\n   <div style="text-align:center;width:100%" *ngIf="questionStatus == \'good\'">\n     Bien joué\n   </div>\n </ion-row>\n  <ion-row class="qs-actions">\n    <div style="text-align:center;width:100%">\n     <button ion-button icon-start (click)="validY(true)" [hidden]="replied">Valider</button>\n   </div>\n </ion-row>\n</ng-container>\n</div>\n<div class="suivi">\n  <div class="person" [style.top]="sanitizer.bypassSecurityTrustStyle(\'calc( ( 100% - 50px - 20px ) * \' + (currentQuestionId / (questions?.length - 1)) +\')\')">\n    <img src="https://www.popme.app/media/cache/resolve/user/uploads/images/user/4435e3b26ae1da2d545ceb09f353ea10"/>\n    <div class="info">{{currentQuestionId + 1}}/{{questions?.length}}</div>\n  </div>\n</div>\n<div class="actions">\n  <div class="quit" (click)="quit()">Quitter</div>\n  <div class="domain">\n    <div class="domain-block">\n      <img src="{{currentQuestion.category.image}}"/>\n      <div class="text">{{currentQuestion.category.title}}</div>\n    </div>\n  </div>\n  <div class="pass" [hidden]="!showResponses" (click)="nextQuestion()">Suivant</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"C:\Apps\quizzy\quizzy\src\pages\game\game.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
@@ -1534,7 +1577,9 @@ var GamePage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["d" /* StringUtils */]])
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["d" /* StringUtils */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["a" /* Api */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_providers__["f" /* User */]])
     ], GamePage);
     return GamePage;
 }(__WEBPACK_IMPORTED_MODULE_4__abstract__["a" /* AbstractPage */]));
@@ -1787,7 +1832,7 @@ var GameLoaderPage = /** @class */ (function (_super) {
         this.timer = setInterval(function (x) {
             _this.remaining -= _this.delai / 1000;
             if (_this.remaining <= 0) {
-                _this.goTo(__WEBPACK_IMPORTED_MODULE_4__pages__["c" /* GamePage */], 'forward', { 'questions': questions });
+                _this.goTo(__WEBPACK_IMPORTED_MODULE_4__pages__["c" /* GamePage */], 'forward', { 'questions': questions, 'userPlayed': _this.friendChosen.id });
                 clearInterval(_this.timer);
             }
         }, this.delai);

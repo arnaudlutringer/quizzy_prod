@@ -33743,6 +33743,8 @@ page-game .suivi .person .info {
   border-radius: 5px;
   border: solid 1px white;
   height: 20px;
+  font-size: 0.8em;
+  padding: 2px 0 0 0;
 }
 
 page-game .pre-game {
@@ -33883,15 +33885,18 @@ page-game .qs-row.valided {
   color: white;
 }
 
-page-game .qs-actions:not(.qcm):not(.qs) {
-  top: 50%;
-  height: 30%;
-  position: relative;
+page-game .qs-actions {
+  position: absolute;
+  bottom: calc(12%);
+  height: 12%;
+  width: 100%;
+  margin-left: -16px;
 }
 
 page-game .qs-response {
   top: 40%;
   position: relative;
+  font-size: 1.2em;
 }
 
 page-game .input-int, page-game .input-text {

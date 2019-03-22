@@ -1476,6 +1476,8 @@ var GamePage = /** @class */ (function (_super) {
             // Réinitilisation des valeurs
             this.qcm_value = '';
             this.qs_value = '';
+            this.int_value = null;
+            this.text_value = '';
         }
     };
     GamePage.prototype.quit = function () {
